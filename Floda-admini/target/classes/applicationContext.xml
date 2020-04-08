@@ -61,9 +61,11 @@
 	</bean>
 	<!-- jedis客户端单机版 -->
 	<bean id="redisClient" class="redis.clients.jedis.JedisPool">
-		<constructor-arg name="host" value="47.98.144.3"></constructor-arg>
+		<constructor-arg name="host" value="47.107.229.132"></constructor-arg>
+		<constructor-arg name="password" value="457862154"></constructor-arg>
 		<constructor-arg name="port" value="6379"></constructor-arg>
 		<constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
+		<constructor-arg name="timeout" value="60"></constructor-arg>
 	</bean>
 	<bean class="dao.Impl.JedisClientSingle"/>
 </beans>
