@@ -16,7 +16,6 @@ import pojo.UserAddr;
 import pojo.UserInfo;
 import service.FUserService;
 import service.ImgService;
-import utils.FtpUtil;
 import utils.MD5Util;
 import utils.ResponseResult;
 
@@ -237,7 +236,6 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
                     img.setImg_id(info.getHead());
                     imgService.updateImg(img);
                 }
-                FtpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BASE_PATH, imgPath, newName, new FileInputStream(imgFile.getAbsoluteFile()));
             } catch (Exception e) {
                 e.printStackTrace();
             }

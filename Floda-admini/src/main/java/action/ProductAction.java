@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import dao.ImgDao;
 import dao.JedisClient;
 import dao.ProductDao;
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
@@ -14,7 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pojo.Img;
 import pojo.Product;
 import service.ProductService;
-import utils.FtpUtil;
+import utils.FastDFSClient;
+import utils.FileUtils;
 import utils.ResponseResult;
 
 import java.io.File;
@@ -85,12 +85,14 @@ public class ProductAction extends BaseAction{
     }
 
     public String addProduct() throws FileNotFoundException {
-        String oldFileName = imgFileFileName;
-        String extension = oldFileName.substring(oldFileName.indexOf("."));
-        String newName = oldFileName.substring(0,oldFileName.indexOf("."))+UUID.randomUUID().toString().substring(0,5)+extension;
-        String imgPath = getDate();
-        FtpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BASE_PATH, imgPath, newName, new FileInputStream(imgFile.getAbsoluteFile()));
-        img.setImg_addr(IMG_BASE_PATH+imgPath+"/"+newName);
+        try {
+            FastDFSClient fastDFSClient = new FastDFSClient();
+            String fileName = fastDFSClient.uploadFile(FileUtils.File2byte(imgFile));
+            img.setImg_addr(IMG_BASE_PATH+fileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         productService.addProduct(product,img);
         jedisClient.del(KEY_GETPRODUCTS);
         jedisClient.del(KEY_GETNEWPRODUCTS);
@@ -117,16 +119,32 @@ public class ProductAction extends BaseAction{
             response.getWriter().write(new Gson().toJson(ResponseResult.build(500,"修改发生错误")));
             return NONE;
         }else {
-            String oldFileName = imgFileFileName;
-            String extension = oldFileName.substring(oldFileName.indexOf("."));
-            String newName = oldFileName.substring(0,oldFileName.indexOf("."))+UUID.randomUUID().toString().substring(0,5)+extension;
-            String imgPath = getDate();
-            FtpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BASE_PATH, imgPath, newName, new FileInputStream(imgFile.getAbsoluteFile()));
-            img.setImg_addr(IMG_BASE_PATH+imgPath+"/"+newName);
+
+
+
+            try {
+                FastDFSClient fastDFSClient = new FastDFSClient();
+                String fileName = fastDFSClient.uploadFile(FileUtils.File2byte(imgFile));
+                img.setImg_addr(IMG_BASE_PATH+fileName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            String fileName="";
+            try {
+                FastDFSClient fastDFSClient = new FastDFSClient();
+                 fileName = fastDFSClient.uploadFile(FileUtils.File2byte(imgFile));
+                img.setImg_addr(IMG_BASE_PATH+fileName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
             productService.updateProduct(product);
             Product p = productDao.getProduct(this.product.getPro_id());
             Img img = imgDao.getImg(p.getPro_imgId());
-            img.setImg_addr(IMG_BASE_PATH+imgPath+"/"+newName);
+            img.setImg_addr(IMG_BASE_PATH+fileName);
             imgDao.updateImg(img);
             jedisClient.del(KEY_GETPRODUCTS);
             jedisClient.del(KEY_GETNEWPRODUCTS);
