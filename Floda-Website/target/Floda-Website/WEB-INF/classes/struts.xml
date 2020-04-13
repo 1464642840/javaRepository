@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <constant name="struts.objectFactory" value="spring"></constant>
-	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
     <constant name="struts.multipart.maxSize" value="10000000"/>
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.multipart.saveDir" value="/tmp"/>
@@ -24,18 +24,18 @@
         <action name="getEcaluate" class="ecaluateAction" method="getEcaluate"/>
         <action name="addEcaluate" class="ecaluateAction" method="addEcaluate"/>
     </package>
-       <package name="product" extends="struts-default" namespace="/" strict-method-invocation="false">
-           <global-results>
-               <result name="detail">product-details.jsp</result>
-               <result name="shop">shop.jsp</result>
-               <result name="search">search.jsp</result>
-           </global-results>
-           <action name="productDetail" class="FProductAction" method="productDetail"/>
-           <action name="moreProduct" class="FProductAction" method="moreProduct"/>
-           <action name="getNewProducts" class="FProductAction" method="getNewProducts"/>
-           <action name="getProByCate" class="FProductAction" method="getProByCate"/>
-           <action name="searchProduct" class="FProductAction" method="searchProduct"/>
-           <action name="getHotProducts" class="FProductAction" method="getHotProducts"/>
+    <package name="product" extends="struts-default" namespace="/" strict-method-invocation="false">
+        <global-results>
+            <result name="detail">product-details.jsp</result>
+            <result name="shop">shop.jsp</result>
+            <result name="search">search.jsp</result>
+        </global-results>
+        <action name="productDetail" class="FProductAction" method="productDetail"/>
+        <action name="moreProduct" class="FProductAction" method="moreProduct"/>
+        <action name="getNewProducts" class="FProductAction" method="getNewProducts"/>
+        <action name="getProByCate" class="FProductAction" method="getProByCate"/>
+        <action name="searchProduct" class="FProductAction" method="searchProduct"/>
+        <action name="getHotProducts" class="FProductAction" method="getHotProducts"/>
     </package>
     <package name="Cart" extends="struts-default" namespace="/" strict-method-invocation="false">
         <global-results>

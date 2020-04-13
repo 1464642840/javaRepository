@@ -55,7 +55,7 @@
                 for (var i = 0; i < result.length; i++){
                     $("#tableData").append("<tr>\n" +
                         "        <td>"+result[i].ecal_id+"</td>\n" +
-                        "        <td><a href='/productDetail?id="+result[i].product_id+"' target='_blank'>"+result[i].product_id+"</a></td>\n" +
+                        "        <td><a href='http://localhost:8080/productDetail?id="+result[i].product_id+"' target='_blank'>"+result[i].product_id+"</a></td>\n" +
                         "        <td>"+result[i].order_id+"</td>\n" +
                         "        <td>"+result[i].user_id+"</td>\n" +
                         "        <td>"+result[i].username+"</td>\n" +
