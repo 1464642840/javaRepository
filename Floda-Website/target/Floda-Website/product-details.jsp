@@ -519,7 +519,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8080/getCartInfos",
+            url: "getCartInfos",
             //请求成功
             success: function (data) {
                 console.log(data);
@@ -548,7 +548,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8080/getCartInfos",
+            url: "getCartInfos",
             //请求成功
             success: function (msg) {
                 if(typeof msg == "string"){
@@ -599,7 +599,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8080/addCart",
+            url: "addCart",
             //传参
             data: {"pro_id":pro_id,"pro_number":pro_number},
             //请求成功
@@ -626,7 +626,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8081/getProduct?id="+id,
+            url: "getProduct?id="+id,
 
             //请求成功
             success: function (result) {
@@ -653,7 +653,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8081/getImgUrl?id="+id,
+            url: "getImgUrl?id="+id,
 
             //请求成功
             success: function (result) {
@@ -674,7 +674,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址+请求参数
-            url: "http://localhost:8080/delCart?cart_id="+cart_id,
+            url: "delCart?cart_id="+cart_id,
             //请求成功
             success: function (data) {
                 if(data.status == 200){
@@ -699,7 +699,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址+请求参数
-            url: "http://localhost:8080/addWishlist?pro_id="+pro_id,
+            url: "addWishlist?pro_id="+pro_id,
             //请求成功
             success: function (data) {
                 if(data.status == 200){
@@ -724,7 +724,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8080/getWishlistInfos",
+            url: "getWishlistInfos",
             //请求成功
             success: function (data) {
                 if(typeof data == "string"){

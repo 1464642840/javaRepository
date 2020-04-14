@@ -469,7 +469,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8080/getCartInfos",
+            url: "getCartInfos",
             //请求成功
             success: function (result) {
                 console.log(result);

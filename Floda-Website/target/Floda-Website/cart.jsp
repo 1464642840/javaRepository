@@ -352,7 +352,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8080/getCartInfos",
+            url: "getCartInfos",
             //请求成功
             success: function (result) {
                 console.log(result);
@@ -397,7 +397,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址+请求参数
-            url: "http://localhost:8080/delCart?cart_id="+cart_id,
+            url: "delCart?cart_id="+cart_id,
             //请求成功
             success: function (data) {
                 if(data.status == 200){
@@ -422,7 +422,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "http://localhost:8080/getWishlistInfos",
+            url: "getWishlistInfos",
             //请求成功
             success: function (data) {
                 if(typeof data == "string"){

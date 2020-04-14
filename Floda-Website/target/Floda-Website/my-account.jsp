@@ -816,7 +816,7 @@
                 switch (item.type) {
                     case 1:
                         typeName = "未支付";
-                        operation = "<a class='btn btn__bg' href='http://localhost:8080/finishPay.action?orderId="+item.order_id+"'>去支付</a>";
+                        operation = "<a class='btn btn__bg' href='/finishPay.action?orderId="+item.order_id+"'>去支付</a>";
                         break;
                     case 2:
                         typeName = "未评价";
