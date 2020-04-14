@@ -679,7 +679,7 @@
         getWishNum();
         getCartNum();
         $.ajax({
-            url:"/getNewProducts",
+            url:"getNewProducts",
             type:"post",
             data: {"startPage": 1, "item": 8},
             success:function (result) {
@@ -721,7 +721,7 @@
             }
         })
         $.ajax({
-            url:"/getHotProducts",
+            url:"getHotProducts",
             type:"post",
             success:function (result) {
                 console.log(result)
@@ -818,7 +818,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "/addCart",
+            url: "addCart",
             //传参
             data: {"pro_id":pro_id,"pro_number":1},
             //请求成功
@@ -844,7 +844,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "/getCartInfos",
+            url: "getCartInfos",
             //请求成功
             success: function (msg) {
                 if(typeof msg == "string"){
@@ -894,7 +894,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址+请求参数
-            url: "/delCart?cart_id="+cart_id,
+            url: "delCart?cart_id="+cart_id,
             //请求成功
             success: function (data) {
                 if(data.status == 200){
@@ -919,7 +919,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址+请求参数
-            url: "/addWishlist?pro_id="+pro_id,
+            url: "addWishlist?pro_id="+pro_id,
             //请求成功
             success: function (data) {
                 console.log(data);
@@ -946,7 +946,7 @@
                //请求的媒体类型
                datatype: "json",
                //请求地址
-               url: "/getWishlistInfos",
+               url: "getWishlistInfos",
                //请求成功
                success: function (data) {
                    if(typeof data == "string"){
@@ -974,7 +974,7 @@
                //请求的媒体类型
                datatype: "json",
                //请求地址
-               url: "/getCartInfos",
+               url: "getCartInfos",
                //请求成功
                success: function (data) {
                    if(typeof data == "string"){

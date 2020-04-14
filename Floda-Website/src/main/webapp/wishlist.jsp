@@ -482,7 +482,7 @@
                 console.log(e.responseText);
             }
         })
-    })
+    });
     function getCartInfos(){
         $.ajax({
             //请求方式
