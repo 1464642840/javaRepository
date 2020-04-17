@@ -797,7 +797,7 @@
             //请求的媒体类型
             datatype: "json",
             //请求地址
-            url: "/getImgUrl?id="+id,
+            url: "getImgUrl?id="+id,
 
             //请求成功
             success: function (result) {

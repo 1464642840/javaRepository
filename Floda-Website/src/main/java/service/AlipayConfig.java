@@ -20,10 +20,10 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvLyPHrF1Fm5x4LLu0jzv+gFzf77KyWmhuesmGC/2GLtomlYnq+7AnksX5z+SuPaUXvd5dmNVEchzmX6Y0ugsxTYv4TQQGlYb69+Z9i31YiW0pSAs0v0onh1Zc9bu0rKiQ7Uk8ZM/yVuzVcWtqKbtV6KOEfaoY6BUgWwpLvK5rWv8T4Au3pqT5Pf5763fRaZnFC24KK8jZOJR92mNkiJh3+nhLph/ZF4YeJRS1Tgfyb5Ip9ZfFbfyU3vzq7IEJVeo/8snSbf+T3N7aTwQW226HX5lrlf9Zo+U8Arq80LGsFGMDhZI7/66mIaxzKPTvDzbyMHDHzUWQkBeeLp/H5nqZQIDAQAB";
 
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://localhost：8080/successPay";
+    public static String notify_url = "http://www.blxf.vip:8080/Floda-Website/successPay";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String return_url = "http://www.floda.com:8080/successPay";
+    public static String return_url = "http://www.blxf.vip:8080/Floda-Website/successPay";
 
     // 签名方式
     public static String sign_type = "RSA2";
