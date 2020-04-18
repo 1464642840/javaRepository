@@ -19,7 +19,8 @@
 *.zip
 *.tar.gz
 *.rar
-/target/
+Floda-admini/target/*
+Floda-Website/target/*
 .idea/
 /lib/
 /lib/*

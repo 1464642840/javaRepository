@@ -623,9 +623,6 @@
                                 onchange="getChilren(this)">
                             <option disabled selected>区/县</option>
                         </select>
-                        <select class="form-control" style="width: 120px" id="street" name="userAddr.street">
-                            <option disabled selected>配送区域</option>
-                        </select>
                     </div>
 
                     <div class="form-group">

@@ -29,12 +29,12 @@ public class MailUtil {
             // 设置收件人，寄件人 用数组发送多个邮件
 
             mailMessage.setTo(to); 
-            mailMessage.setFrom( "davy199766@vip.qq.com" );
-            mailMessage.setSubject( "Floda商城" );
-            mailMessage.setText("您正在使用Floda商城进行密码重置，您的验证码为" + code+"!");
+            mailMessage.setFrom( "1464642840@qq.com" );
+            mailMessage.setSubject( "BLXF商城" );
+            mailMessage.setText("您正在使用BLXF商城进行密码重置，您的验证码为" + code+"!");
 
-            senderImpl.setUsername("davy199766@vip.qq.com");
-            senderImpl.setPassword("xhxxpqvhrjgxbhdf");
+            senderImpl.setUsername("1464642840@qq.com");
+            senderImpl.setPassword("tfrwuodlmehvjhge");
             
            
             prop.put("mail.smtp.auth","true");
