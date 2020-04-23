@@ -79,4 +79,6 @@ public interface FUserDao {
      * @return
      */
     void changePwd(String current_pwd,int user_id);
+
+    User getUserByUserName(String username);
 }

@@ -216,15 +216,15 @@
                             </div>
                             <ul class="footer-widget-body accout-widget">
                                 <li class="address">
-                                    <em><i class="lnr lnr-map-marker"></i></em>德创智谷
+                                    <em><i class="lnr lnr-map-marker"></i></em>深圳西部硅谷
                                 </li>
                                 <li class="email">
                                     <em><i class="lnr lnr-envelope"></i> 收件地址: </em>
-                                    <a href="mailto:test@yourdomain.com">2680300117@gmail.com</a>
+                                    <a href="mailto:test@yourdomain.com">14646428403@qq.com</a>
                                 </li>
                                 <li class="phone">
                                     <em><i class="lnr lnr-phone-handset"></i> 联系电话: </em>
-                                    <a href="tel:(012)800456789-987">(012) 800 456 789-987</a>
+                                    <a href="tel:(012)800456789-987">150-0709-1250</a>
                                 </li>
                             </ul>
                             <div class="payment-method">

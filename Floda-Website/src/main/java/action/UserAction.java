@@ -71,7 +71,6 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
     private String current_pwd;
 
 
-
     /**
      * 添加用户地址
      *
@@ -148,6 +147,10 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
      */
 
     public String register() throws Exception {
+        if(!session.containsKey("code")){
+            request.setAttribute("hint", "请先获取验证码！");
+            return ERROR;
+        }
         if (!session.get("code").equals(code)) {
             session.remove("code");
             request.setAttribute("hint", "验证码错误，请重新输入！");
@@ -220,7 +223,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
         info.setUser_id(onliner.getUser_id());
 
         //如果用户上传了头像，就更新头像，否则只更新基本信息
-        if (imgFile != null){
+        if (imgFile != null) {
             System.out.println(imgFileFileName);
             String oldFileName = imgFileFileName;
             String extension = oldFileName.substring(oldFileName.indexOf("."));
@@ -228,11 +231,11 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
             String imgPath = getDate();
             try {
                 Img img = new Img();
-                img.setImg_addr(IMG_BASE_PATH+imgPath+"/"+newName);
-                if(info.getHead() == 0){
+                img.setImg_addr(IMG_BASE_PATH + imgPath + "/" + newName);
+                if (info.getHead() == 0) {
                     int i = imgService.addImg(img);
                     info.setHead(i);
-                }else {
+                } else {
                     img.setImg_id(info.getHead());
                     imgService.updateImg(img);
                 }
@@ -247,7 +250,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
             }
 
             return NONE;
-        }else {
+        } else {
             try {
                 response.setContentType("application/json;charset=utf-8");
                 response.getWriter().write(userService.updateUserInfo(info));
@@ -299,7 +302,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
     public String changePsw() throws IOException {
         User user = (User) session.get("onliner");
-        if (user.getPassword().equals(MD5Util.getMD5(current_pwd)) && code.equals(session.get("mailcode"))){
+        if (user.getPassword().equals(MD5Util.getMD5(current_pwd)) && code.equals(session.get("mailcode"))) {
             String result = userService.changePwd(new_pwd, user.getUser_id());
             session.remove("mailcode");
             response.setContentType("application/json;charset=utf-8");
@@ -307,8 +310,28 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
             return NONE;
         }
         response.setContentType("application/json;charset=utf-8");
-        response.getWriter().write(new Gson().toJson(ResponseResult.build(501,"原密码不正确")));
+        response.getWriter().write(new Gson().toJson(ResponseResult.build(501, "原密码不正确")));
         return NONE;
+    }
+
+    /**
+     * 检查用户名是否存在
+     */
+    public String checkUsername() throws IOException {
+
+        String username = user.getUsername();
+        User user = userService.getUserByUserName(username);
+        session.remove("mailcode");
+        response.setContentType("application/json;charset=utf-8");
+        if (user == null) {
+            response.getWriter().write(new Gson().toJson(ResponseResult.build(200, "用户名可用")));
+
+        } else {
+            response.getWriter().write(new Gson().toJson(ResponseResult.build(501, "用户名已存在")));
+        }
+        return NONE;
+
+
     }
 
 

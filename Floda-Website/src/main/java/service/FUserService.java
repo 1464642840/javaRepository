@@ -81,4 +81,6 @@ public interface FUserService {
      * @return
      */
     String changePwd(String current_pwd,int user_id);
+
+    User getUserByUserName(String username);
 }

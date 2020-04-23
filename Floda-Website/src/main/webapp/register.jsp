@@ -151,19 +151,39 @@
 <!-- Active Js -->
 <script src="assets/js/active.js"></script>
 <script>
+
+    var isCanRegiser = true;
     //检查两次密码是否一致
     $("#registerform").submit(function () {
         if ($("#registerform input[type='password']").eq(0).val().trim() !== $("#registerform input[type='password']").eq(1).val().trim()) {
             $(".hint").html("两次密码输入不一致，请重新输入!")
             return false;
-        } else {
-            return true;
         }
+        if(!isCanRegiser){
+            return  false;
+        }
+        return true;
+    });
+    //检查用户名是否重复
+    $("input[name='username']").blur(function () {
+        let username = $("input[name='username']").val();
+        $.post('checkUsername?username='+username, function (data) {
+            data=eval("("+data+")");
+            console.log(data.status);
+
+            if(data.status==200){
+                isCanRegiser=true;
+               $(".hint").html("<font color='green'>"+data.msg+"</font>")
+           }else{
+                isCanRegiser=false;
+               $(".hint").html(data.msg)
+           }
+        })
     });
     $("#btn_code").click(function () {
         let tel = $("#tel").val();
         if($('#tel').val()==''||$('#tel').val().length<11){
-            alert("手机号码格式错误")
+            alert("手机号码格式错误");
             return;
         }
         $.post('sendRegSMS?phoneNumber='+tel, function () {

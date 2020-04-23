@@ -8,10 +8,12 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 import pojo.*;
 import utils.MD5Util;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -142,5 +144,17 @@ public class FUserDaoImpl extends HibernateDaoSupport implements FUserDao {
         user.setPassword(MD5Util.getMD5(current_pwd));
         System.err.println(user+"更新后的用户密码");
         this.getHibernateTemplate().update(user);
+    }
+
+    @Override
+    public User getUserByUserName(String username) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
+        criteria.add(Restrictions.eq("username", username));
+        List<User> list = (List<User>) this.getHibernateTemplate().findByCriteria(criteria);
+        if(CollectionUtils.isEmpty(list)){
+            return null;
+        }
+        return list.get(0);
+
     }
 }

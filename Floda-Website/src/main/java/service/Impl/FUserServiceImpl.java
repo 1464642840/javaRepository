@@ -53,11 +53,11 @@ public class FUserServiceImpl implements FUserService {
     public String addAddress(UserAddr userAddr) {
         try {
             fuserDao.addAddress(userAddr);
-            return ResponseResult.build(200,"添加成功");
+            return ResponseResult.build(200, "添加成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ResponseResult.build(500,"添加失败");
+        return ResponseResult.build(500, "添加失败");
     }
 
     @Override
@@ -65,11 +65,11 @@ public class FUserServiceImpl implements FUserService {
     public String removeAddr(int user_addr_id) {
         try {
             fuserDao.removeAddr(user_addr_id);
-            return ResponseResult.build(200,"删除成功");
+            return ResponseResult.build(200, "删除成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ResponseResult.build(500,"删除失败");
+        return ResponseResult.build(500, "删除失败");
     }
 
     @Override
@@ -83,11 +83,11 @@ public class FUserServiceImpl implements FUserService {
     public String updateAddress(UserAddr userAddr) {
         try {
             fuserDao.updateAddress(userAddr);
-            return ResponseResult.build(200,"修改成功");
+            return ResponseResult.build(200, "修改成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ResponseResult.build(200,"修改失败");
+        return ResponseResult.build(200, "修改失败");
     }
 
     @Override
@@ -100,22 +100,34 @@ public class FUserServiceImpl implements FUserService {
     public String updateUserInfo(UserInfo userInfo) {
         try {
             fuserDao.updateUserInfo(userInfo);
-            return ResponseResult.build(200,"修改成功");
+            return ResponseResult.build(200, "修改成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ResponseResult.build(500,"修改失败");
+        return ResponseResult.build(500, "修改失败");
     }
 
     @Override
     @Transactional
-    public String changePwd(String current_pwd,int user_id) {
+    public String changePwd(String current_pwd, int user_id) {
         try {
-            fuserDao.changePwd(current_pwd,user_id);
-            return ResponseResult.build(200,"密码修改成功");
+            fuserDao.changePwd(current_pwd, user_id);
+            return ResponseResult.build(200, "密码修改成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ResponseResult.build(500,"密码修改失败");
+        return ResponseResult.build(500, "密码修改失败");
+    }
+
+    @Override
+    public User getUserByUserName(String username) {
+        User user = null;
+        try {
+            user =fuserDao.getUserByUserName(username);
+        } catch (
+                Exception e) {
+        }
+        return user;
     }
 }
+
