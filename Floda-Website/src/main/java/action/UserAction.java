@@ -36,16 +36,6 @@ import java.util.UUID;
 @Controller
 public class UserAction extends BaseAction implements ModelDriven<User> {
 
-    @Value("${FTP_ADDRESS}")
-    private String FTP_ADDRESS;
-    @Value("${FTP_PORT}")
-    private Integer FTP_PORT;
-    @Value("${FTP_USERNAME}")
-    private String FTP_USERNAME;
-    @Value("${FTP_PASSWORD}")
-    private String FTP_PASSWORD;
-    @Value("${FTP_BASE_PATH}")
-    private String FTP_BASE_PATH;
     @Value("${IMG_BASE_PATH}")
     private String IMG_BASE_PATH;
     @Autowired

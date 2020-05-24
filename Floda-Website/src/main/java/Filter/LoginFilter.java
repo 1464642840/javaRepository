@@ -27,7 +27,7 @@ public class LoginFilter implements Filter {
         if (flag != null){
             chain.doFilter(request,response);
         }else {
-            httpResponse.sendRedirect("http://localhost:8080/login.jsp");
+            httpResponse.sendRedirect("http://localhost/login.jsp");
         }
 
     }

@@ -10,7 +10,7 @@
 <html>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName()  + path + "/";
 %>
 <head>
     <title>商品管理</title>
@@ -197,7 +197,7 @@
                 $("#tbody").empty();
                 console.log(result);
                 $.each(result.data, function (index, item) {
-                    $("#tbody").append("<tr><td>" + item.pro_id + "</td><td><a href='http://localhost:8080/productDetail?id="+item.pro_id+"' target='_blank'><img width='80px' height='80px' src='" + item.pro_imgUrl + "'/></a></td><td><a href='http://localhost:8080/productDetail?id="+item.pro_id+"' target='_blank'>" + item.pro_name + "</a></td><td>" + item.pro_price + "</td><td>" + item.pro_status + "</td><td>" + item.pro_numbers + "</td><td>" +
+                    $("#tbody").append("<tr><td>" + item.pro_id + "</td><td><a href='http://localhost/productDetail?id="+item.pro_id+"' target='_blank'><img width='80px' height='80px' src='" + item.pro_imgUrl + "'/></a></td><td><a href='http://localhost/productDetail?id="+item.pro_id+"' target='_blank'>" + item.pro_name + "</a></td><td>" + item.pro_price + "</td><td>" + item.pro_status + "</td><td>" + item.pro_numbers + "</td><td>" +
                         "<a class='btn btn-warning radius' data-toggle='modal' data-target='#updateModal' onclick='getProduct("+item.pro_id+")'>编辑商品</a></td></tr>");
                 })
                 var span = $("<p>当前第<span class='badge'>"+result.nowPage+"</span>页，总<span class='badge'>"+result.totalPage+"</span>页，总 <span class='badge'>"+result.totalNum+"</span>条记录</p>");

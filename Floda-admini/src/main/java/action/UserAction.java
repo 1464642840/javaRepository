@@ -27,26 +27,28 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
     /**
      * 用户登录
+     *
      * @return
      */
     public String loginUser() throws IOException {
         Boolean isLogin = userService.LoginUser(user.getUsername(), user.getPassword());
-        if (isLogin){
-            session.put("userFlag",user.getUsername());
-            return  MAIN;
+        if (isLogin) {
+            session.put("userFlag", user.getUsername());
+            return MAIN;
         }
-        request.setAttribute("msg","用户名和密码错误，请重试!");
+        request.setAttribute("msg", "用户名和密码错误，请重试!");
         return INDEX;
     }
 
     /**
      * 查询用户列表
+     *
      * @return
      */
-    public String list(){
+    public String list() {
         try {
             String redisResult = jedisClient.get(KEY_USERLIST);
-            if (redisResult != null){
+            if (redisResult != null) {
                 response.setContentType("application/json;charset=utf-8");
                 response.getWriter().write(redisResult);
                 return NONE;
@@ -56,7 +58,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
         }
         try {
             String list = userService.getUserList();
-            jedisClient.set(KEY_USERLIST,list);
+            jedisClient.set(KEY_USERLIST, list);
             response.setContentType("application/json;charset=utf-8");
             response.getWriter().write(list);
         } catch (IOException e) {
@@ -67,12 +69,13 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
     /**
      * 查询用户详细信息
+     *
      * @return
      */
-    public String info(){
+    public String info() {
         try {
-            String redisResult = jedisClient.hget(KEY_USERINFO,"userId="+userId);
-            if (redisResult != null){
+            String redisResult = jedisClient.hget(KEY_USERINFO, "userId=" + userId);
+            if (redisResult != null) {
                 response.setContentType("application/json;charset=utf-8");
                 response.getWriter().write(redisResult);
                 return NONE;
@@ -82,8 +85,8 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
         }
         try {
             String info = userService.info(userId);
-            if (info != null){
-                jedisClient.hset(KEY_USERINFO,"userId="+userId,info);
+            if (info != null) {
+                jedisClient.hset(KEY_USERINFO, "userId=" + userId, info);
                 response.setContentType("application/json;charset=utf-8");
                 response.getWriter().write(info);
             }
@@ -96,7 +99,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
     /**
      * 封号处理`
      */
-    public String stop(){
+    public String stop() {
         try {
             String stopUser = userService.stopUser(userId);
             response.setContentType("application/json;charset=utf-8");
@@ -111,7 +114,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
     /**
      * 解封处理`
      */
-    public String start(){
+    public String start() {
         try {
             String startUser = userService.startUser(userId);
             jedisClient.del(KEY_USERLIST);

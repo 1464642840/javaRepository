@@ -82,27 +82,28 @@ public class PayAction extends BaseAction {
             //放入订单就删除购物车
             cartDao.delCart(c.getCart_id());
             //放入订单后商品库存减少1
-            product.setPro_numbers(product.getPro_numbers()-1);
+            product.setPro_numbers(product.getPro_numbers() - 1);
             //如果商品库存小于0，商品下架
-            if (product.getPro_numbers() <= 0){
+            if (product.getPro_numbers() <= 0) {
                 product.setPro_status(1);
             }
             productService.updateProduct(product);
         }
-        String pagepay = alipayTrade.Pagepay(super.request,total,orderId);
+        String pagepay = alipayTrade.Pagepay(super.request, total, orderId);
         request.setAttribute("result", pagepay);
         return PAY;
     }
 
     /**
      * 如果用户之前取消了订单的支付，在个人中心里继续支付将调用这个方法
+     *
      * @return
      * @throws IOException
      * @throws AlipayApiException
      */
     public String finishPay() throws IOException, AlipayApiException {
         Order order = orderDao.getOrder(orderId);
-        String pagepay = alipayTrade.Pagepay(super.request, (float) order.getOrder_money(),order.getOrder_id());
+        String pagepay = alipayTrade.Pagepay(super.request, (float) order.getOrder_money(), order.getOrder_id());
         request.setAttribute("result", pagepay);
         return PAY;
     }
@@ -163,7 +164,7 @@ public class PayAction extends BaseAction {
 
     }
 
-    public String getOrders(){
+    public String getOrders() {
         try {
             List<Order> orders = orderDao.getOrders(user_id);
             response.setContentType("application/json;charset=utf-8");
@@ -172,7 +173,9 @@ public class PayAction extends BaseAction {
             e.printStackTrace();
         }
         return NONE;
-    };
+    }
+
+    ;
 
     public String getOut_trade_no() {
         return out_trade_no;
