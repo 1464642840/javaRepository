@@ -448,7 +448,7 @@
                                         <div class="pro-qty"><input type="text" value="1"></div>
                                     </div>
                                     <div class="action_link">
-                                        <a class="btn btn-cart2" href="#">添加至购物车</a>
+                                        <a class="btn btn-cart2" href="javascript:void(0)">添加至购物车</a>
                                     </div>
                                 </div>
                             </div>

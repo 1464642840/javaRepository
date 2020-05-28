@@ -11,7 +11,7 @@ import utils.ResponseResult;
 import java.io.IOException;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-06 14:18
  * @Description:图片Action
  */

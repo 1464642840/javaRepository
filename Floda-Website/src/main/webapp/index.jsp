@@ -29,6 +29,8 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+
+
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
@@ -603,10 +605,10 @@
                                 <div class="quantity-cart-box d-flex align-items-center">
                                     <h5>数量:</h5>
                                     <div class="quantity">
-                                        <div class="pro-qty"><input type="text" value="1"></div>
+                                        <div class="pro-qty"><input type="text" value="1" id="gwc_sl"></div>
                                     </div>
                                     <div class="action_link">
-                                        <a class="btn btn-cart2" href="#">添加至购物车</a>
+                                        <a class="btn btn-cart2" href="javascript:void(0)" id="add_gwc" ord="">添加至购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -700,7 +702,7 @@
                         "                                <div class='button-group'>\n" +
                         "                                    <a href='javascript:void(0)' onclick='addWishlist("+item.pro_id+")' data-toggle='tooltip' data-placement='left' title='添加收藏'><i class='lnr lnr-heart' ></i></a>\n" +
                         "                                    <a href='javascript:void(0)' onclick='getProduct("+item.pro_id+")' data-toggle='modal' data-target='#quick_view'><span data-toggle='\"tooltip' data-placement='left' title='快速预览'><i class='lnr lnr-magnifier'></i></span></a>\n" +
-                        "                                    <a href='javascript:void(0)' onclick='addCart("+item.pro_id+")' data-toggle='tooltip' data-placement='left' title='添加购物车'><i class='lnr lnr-cart'></i></a>\n" +
+                        "                                    <a href='javascript:void(0)' onclick='addCart("+item.pro_id+",1)' data-toggle='tooltip' data-placement='left' title='添加购物车'><i class='lnr lnr-cart'></i></a>\n" +
                         "                                </div>\n" +
                         "                            </figure>\n" +
                         "                            <div class='product-caption'>\n" +
@@ -741,7 +743,7 @@
                         "                                <div class='button-group'>\n" +
                         "                                    <a href='javascript:void(0)' onclick='addWishlist("+item.pro_id+")' data-toggle='tooltip' data-placement='left' title='添加收藏'><i class='lnr lnr-heart' ></i></a>\n" +
                         "                                    <a href='javascript:void(0)' onclick='getProduct("+item.pro_id+")' data-toggle='modal' data-target='#quick_view'><span data-toggle='\"tooltip' data-placement='left' title='快速预览'><i class='lnr lnr-magnifier'></i></span></a>\n" +
-                        "                                    <a href='javascript:void(0)' onclick='addCart("+item.pro_id+")' data-toggle='tooltip' data-placement='left' title='添加购物车'><i class='lnr lnr-cart'></i></a>\n" +
+                        "                                    <a href='javascript:void(0)' onclick='addCart("+item.pro_id+",1)' data-toggle='tooltip' data-placement='left' title='添加购物车'><i class='lnr lnr-cart'></i></a>\n" +
                         "                                </div>\n" +
                         "                            </figure>\n" +
                         "                            <div class='product-caption'>\n" +
@@ -782,6 +784,7 @@
                 $("#model_pro_name").append(result.pro_name);
                 $("#model_pro_price").append("¥"+result.pro_price);
                 $("#model_pro_desc").append(result.pro_desc);
+                $("#add_gwc").attr("ord",result.pro_id);
             },
             //请求失败，包含具体的错误信息
             error: function (e) {
@@ -790,6 +793,12 @@
             }
         });
     }
+
+    $("#add_gwc").click(function () {
+       addCart($(this).attr("ord"),$("#gwc_sl").val());
+    });
+
+
     function getImg(id) {
         $.ajax({
             //请求方式
@@ -811,7 +820,7 @@
             }
         });
     }
-    function addCart(pro_id){
+    function addCart(pro_id,sl){
         $.ajax({
             //请求方式
             type: "POST",
@@ -820,14 +829,15 @@
             //请求地址
             url: "addCart",
             //传参
-            data: {"pro_id":pro_id,"pro_number":1},
+            data: {"pro_id":pro_id,"pro_number":sl},
             //请求成功
             success: function (result) {
                 if (result.status == 200){
-                    alert("添加成功!");
+                    success_prompt("添加成功!",1500)
+
                    getCartNum();
                 }else {
-                    alert("添加失败,请登录！");
+                    fail_prompt("添加失败,请登录！",1500)
                 }
             },
             //请求失败，包含具体的错误信息
@@ -898,10 +908,12 @@
             //请求成功
             success: function (data) {
                 if(data.status == 200){
-                    alert("删除成功！")
+                    success_prompt("删除成功！",1500);
+
                     location.href = "index.jsp";
                 }else {
-                    alert("删除失败！")
+                    fail_prompt("删除失败！",1500);
+
                 }
 
             },
@@ -924,10 +936,12 @@
             success: function (data) {
                 console.log(data);
                 if(data.status == 200){
-                    alert("添加成功！");
+                    success_prompt("添加成功！",1500);
+
                     getWishNum();
                 }else {
-                    alert("添加失败！");
+                    fail_prompt("添加失败！",1500);
+
                 }
 
             },
@@ -995,6 +1009,41 @@
                }
            })
        }
+
+
+
+    var prompt = function (message, style, time) {
+        style = (style === undefined) ? 'alert-success' : style;
+        time = (time === undefined) ? 1200 : time;
+        $('<div>')
+            .appendTo('body')
+            .addClass('alert ' + style)
+            .html(message)
+            .show()
+            .delay(time)
+            .fadeOut();
+    };
+
+    // 成功提示
+    var success_prompt = function (message, time) {
+        prompt(message, 'alert-success', time);
+    };
+
+    // 失败提示
+    var fail_prompt = function (message, time) {
+        prompt(message, 'alert-danger', time);
+    };
+
+    // 提醒
+    var warning_prompt = function (message, time) {
+        prompt(message, 'alert-warning', time);
+    };
+
+    // 信息提示
+    var info_prompt = function (message, time) {
+        prompt(message, 'alert-info', time);
+    };
 </script>
+<script src="assets/js/common.js"></script>
 </body>
 </html>

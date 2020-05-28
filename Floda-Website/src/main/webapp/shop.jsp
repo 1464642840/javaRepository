@@ -440,10 +440,10 @@
                                 <div class="quantity-cart-box d-flex align-items-center">
                                     <h5>数量:</h5>
                                     <div class="quantity">
-                                        <div class="pro-qty"><input type="text" value="1"></div>
+                                        <div class="pro-qty"><input id="info_num" type="text" value="1"></div>
                                     </div>
                                     <div class="action_link">
-                                        <a class="btn btn-cart2" href="#">添加至购物车</a>
+                                        <a class="btn btn-cart2" href="" id="add_gwc">添加至购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -509,6 +509,7 @@
             success: function (result) {
                 console.log(result)
                 getImg(result.pro_imgId);
+                $("#info_num").val(1);
                 $("#model_pro_name").empty();
                 $("#model_pro_price").empty();
                 $("#model_pro_desc").empty();

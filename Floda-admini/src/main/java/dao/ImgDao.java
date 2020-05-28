@@ -3,7 +3,7 @@ package dao;
 import pojo.Img;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-05 15:25
  * @Description:图片相关dao接口
  */

@@ -1,7 +1,7 @@
 package pojo;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-06 09:04
  * @Description:商品展示的封装，用于后台商品管理的展示
  */

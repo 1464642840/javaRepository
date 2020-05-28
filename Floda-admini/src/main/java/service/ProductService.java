@@ -7,7 +7,7 @@ import pojo.Product;
 import java.util.List;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-05 14:50
  * @Description:商品service接口
  */

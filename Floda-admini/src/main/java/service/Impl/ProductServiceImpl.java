@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-05 14:51
  * @Description:商品service接口的实现类
  */

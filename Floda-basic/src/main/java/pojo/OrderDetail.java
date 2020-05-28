@@ -3,7 +3,7 @@ package pojo;
 import org.springframework.stereotype.Component;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-12 14:35
  * @Description:订单详情
  */

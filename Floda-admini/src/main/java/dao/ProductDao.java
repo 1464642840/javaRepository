@@ -6,7 +6,7 @@ import pojo.Product;
 import java.util.List;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-05 14:44
  * @Description:商品Dao接口类
  */

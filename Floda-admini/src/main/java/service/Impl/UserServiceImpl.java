@@ -19,8 +19,6 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserDao userDao;
-    @Value("${IMG_BASE_PATH}")
-    private String IMG_BASE_PATH;
 
     /**
      * 查询用户列表
@@ -37,7 +35,7 @@ public class UserServiceImpl implements UserService {
     public String info(int user_id) {
         UserInfo userInfo = userDao.info(user_id);
         if (userInfo != null) {
-            userInfo.setHeadAddr(this.IMG_BASE_PATH + userInfo.getHead());
+            userInfo.setHeadAddr(userInfo.getHead()+"");
             return new Gson().toJson(userInfo);
         }
         return null;

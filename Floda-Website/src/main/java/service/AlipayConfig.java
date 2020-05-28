@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-10 16:42
  * @Description:
  */
@@ -35,7 +35,7 @@ public class AlipayConfig {
     public static String gatewayUrl = "https://openapi.alipaydev.com/gateway.do";
 
     // 支付宝网关
-    public static String log_path = "/Users/zayvion/Desktop/";
+    public static String log_path = "/Users/blxf/Desktop/";
 
 
 //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-10 10:43
  * @Description:腾讯云SMS,注册时发送验证码
  */

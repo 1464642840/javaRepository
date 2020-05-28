@@ -7,7 +7,7 @@ import utils.MailUtil;
 import java.util.Random;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-12 18:19
  * @Description:发送邮件action
  */

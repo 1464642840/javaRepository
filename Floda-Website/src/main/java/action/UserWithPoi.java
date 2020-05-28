@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-09 19:19
  * @Description:使用poi实现报表
  */
@@ -91,7 +91,7 @@ public class UserWithPoi extends BaseAction {
         sheet.autoSizeColumn(4, true);
         sheet.autoSizeColumn(5, true);
         //保存
-        //wb.write(new FileOutputStream(new File("/Users/zayvion/Desktop/poi.xls")));、
+        //wb.write(new FileOutputStream(new File("/Users/blxf/Desktop/poi.xls")));、
         String downFileName = new String("userexport_" + getDate() + ".xls");
         try {
             //若不进行编码在IE下会乱码

@@ -456,7 +456,7 @@
                                         <div class="pro-qty"><input type="text" value="1"></div>
                                     </div>
                                     <div class="action_link">
-                                        <a class="btn btn-cart2" href="#">添加至购物车</a>
+                                        <a class="btn btn-cart2" href="javascript:void(0)" id="add_gwc">添加至购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -541,6 +541,13 @@
             }
         })
     }
+
+
+    $("#add_gwc").click(function () {
+        alert(1);
+    });
+
+
     function getCartInfos(){
         $.ajax({
             //请求方式

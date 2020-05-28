@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-07 14:07
  * @Description:前台商品相关action
  */
@@ -45,11 +45,35 @@ public class FProductAction extends BaseAction {
     private JedisClient jedisClient;
     private static String KEY_GETNEWPRODUCTS = "getNewProducts";
     private static String KEY_PRODUCTDETAIL = "productDetail";
+    private static String KEY_GETPRODUCTINFO = "getProductInfo";
     private int id;
     private int startPage;
     private int item;
     private int cate_id;
     private String keyword;//搜索关键字
+
+
+    public String productInfo() throws IOException {
+        if (id == 0){
+            return NONE;
+        }
+        try {
+            String redisResult = jedisClient.hget(KEY_GETPRODUCTINFO,"pro_id="+id);
+            if (redisResult != null){
+                response.setContentType("application/json;charset=utf-8");
+                response.getWriter().write(redisResult);
+                return NONE;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String result = productService.getProduct(id);
+        jedisClient.hset(KEY_GETPRODUCTINFO,"pro_id="+id,result);
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().write(result);
+        return NONE;
+    }
+
 
     public String productDetail() {
         try {

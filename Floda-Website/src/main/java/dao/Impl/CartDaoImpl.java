@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import pojo.*;
 
 import java.util.ArrayList;
@@ -19,34 +20,49 @@ import java.util.List;
  * @Description: 购物车DAO的实现类
  */
 @Repository
-public class CartDaoImpl extends HibernateDaoSupport implements CartDao{
+public class CartDaoImpl extends HibernateDaoSupport implements CartDao {
     @Autowired
-   public void setSF(SessionFactory sessionFactory){
-       super.setSessionFactory(sessionFactory);
-   }
+    public void setSF(SessionFactory sessionFactory) {
+        super.setSessionFactory(sessionFactory);
+    }
 
     @Override
     public void addCart(int pro_id, int user_id, int pro_number) {
-        Cart cart = new Cart();
-        cart.setProduct_id(pro_id);
-        cart.setUser_id(user_id);
-        cart.setPro_number(pro_number);
-        DetachedCriteria criteria = DetachedCriteria.forClass(Product.class);
-        criteria.add(Restrictions.eq("pro_id",pro_id));
-        List<Product> list = (List<Product>)this.getHibernateTemplate().findByCriteria(criteria);
-        double cart_price = list.get(0).getPro_price()*pro_number;
-        cart.setCart_price(cart_price);
-        this.getHibernateTemplate().save(cart);
+
+        //1.查询是否有记录
+        DetachedCriteria criteria = DetachedCriteria.forClass(Cart.class);
+        criteria.add(Restrictions.eq("product_id", pro_id));
+        criteria.add(Restrictions.eq("user_id", user_id));
+        //查询物品的单价
+        List<Cart> list = (List<Cart>) this.getHibernateTemplate().findByCriteria(criteria);
+        DetachedCriteria criteria2 = DetachedCriteria.forClass(Product.class);
+        criteria2.add(Restrictions.eq("pro_id", pro_id));
+        List<Product> list2 = (List<Product>) this.getHibernateTemplate().findByCriteria(criteria2);
+        if (!CollectionUtils.isEmpty(list)) {
+            Cart cart = list.get(0);
+            cart.setPro_number(cart.getPro_number() + pro_number);
+            double cart_price = list2.get(0).getPro_price() * cart.getPro_number();
+            cart.setCart_price(cart_price);
+            this.getHibernateTemplate().update(cart);
+        } else {
+            Cart cart = new Cart();
+            cart.setProduct_id(pro_id);
+            cart.setUser_id(user_id);
+            cart.setPro_number(pro_number);
+            double cart_price = list2.get(0).getPro_price() * pro_number;
+            cart.setCart_price(cart_price);
+            this.getHibernateTemplate().save(cart);
+        }
     }
 
     @Override
     public List getCartInfos(int user_id) {
         //查询购物车信息
         DetachedCriteria criteria = DetachedCriteria.forClass(Cart.class);
-        criteria.add(Restrictions.eq("user_id",user_id));
-        List<Cart> carts = (List<Cart>)this.getHibernateTemplate().findByCriteria(criteria);
+        criteria.add(Restrictions.eq("user_id", user_id));
+        List<Cart> carts = (List<Cart>) this.getHibernateTemplate().findByCriteria(criteria);
         List<CartInfo> cartInfos = new ArrayList<CartInfo>();
-        for (int i = 0; i < carts.size(); i++){
+        for (int i = 0; i < carts.size(); i++) {
             //根据查出来的商品id：查询商品信息
             Product pro = this.getHibernateTemplate().get(Product.class, carts.get(i).getProduct_id());
             //根据查出来的图片id：查询图片信息

@@ -36,8 +36,7 @@ import java.util.UUID;
 @Controller
 public class UserAction extends BaseAction implements ModelDriven<User> {
 
-    @Value("${IMG_BASE_PATH}")
-    private String IMG_BASE_PATH;
+
     @Autowired
     private JedisClient jedisClient;
     @Autowired
@@ -221,7 +220,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
             String imgPath = getDate();
             try {
                 Img img = new Img();
-                img.setImg_addr(IMG_BASE_PATH + imgPath + "/" + newName);
+                img.setImg_addr(imgPath + "/" + newName);
                 if (info.getHead() == 0) {
                     int i = imgService.addImg(img);
                     info.setHead(i);

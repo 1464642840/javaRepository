@@ -300,7 +300,7 @@ fieldset legend {
     opacity: 1;
 }
 
-.tooltip>.tooltip-inner {
+.tooltip > .tooltip-inner {
     font-size: 13px;
     color: #fff;
     background-color: #CC2121;
@@ -316,7 +316,7 @@ fieldset legend {
 
 /*------ custom tooltip end -------*/
 /* ---- Sick Slider arrow style start ----*/
-.slick-slider .slick-slide>div>div {
+.slick-slider .slick-slide > div > div {
     vertical-align: middle;
 }
 
@@ -676,11 +676,11 @@ fieldset legend {
     }
 }
 
-.slick-slider .slick-slide>div {
+.slick-slider .slick-slide > div {
     margin-bottom: 37px;
 }
 
-.slick-slider .slick-slide>div:last-child {
+.slick-slider .slick-slide > div:last-child {
     margin-bottom: 0;
 }
 
@@ -874,25 +874,25 @@ fieldset legend {
     outline: none;
 }
 
-.custom-checkbox input:focus~.custom-control-label:before,
+.custom-checkbox input:focus ~ .custom-control-label:before,
 .custom-checkbox input:focus label:before,
-.custom-checkbox .custom-control-input:focus~.custom-control-label:before,
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label:before,
 .custom-checkbox .custom-control-input:focus label:before,
-.custom-radio input:focus~.custom-control-label:before,
+.custom-radio input:focus ~ .custom-control-label:before,
 .custom-radio input:focus label:before,
-.custom-radio .custom-control-input:focus~.custom-control-label:before,
+.custom-radio .custom-control-input:focus ~ .custom-control-label:before,
 .custom-radio .custom-control-input:focus label:before {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-.custom-checkbox input:checked~.custom-control-label:before,
+.custom-checkbox input:checked ~ .custom-control-label:before,
 .custom-checkbox input:checked label:before,
-.custom-checkbox .custom-control-input:checked~.custom-control-label:before,
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label:before,
 .custom-checkbox .custom-control-input:checked label:before,
-.custom-radio input:checked~.custom-control-label:before,
+.custom-radio input:checked ~ .custom-control-label:before,
 .custom-radio input:checked label:before,
-.custom-radio .custom-control-input:checked~.custom-control-label:before,
+.custom-radio .custom-control-input:checked ~ .custom-control-label:before,
 .custom-radio .custom-control-input:checked label:before {
     background-color: #CC2121;
     border-color: #CC2121;
@@ -1157,8 +1157,8 @@ fieldset legend {
     padding-left: 0;
 }
 
-.main-menu ul li:hover>a,
-.main-menu ul li.active>a {
+.main-menu ul li:hover > a,
+.main-menu ul li.active > a {
     color: #CC2121;
 }
 
@@ -1204,7 +1204,7 @@ fieldset legend {
     padding-top: 5px;
 }
 
-.main-menu ul li ul.dropdown li:hover>a {
+.main-menu ul li ul.dropdown li:hover > a {
     color: #CC2121;
     background-color: #fff;
 }
@@ -1239,7 +1239,7 @@ fieldset legend {
     flex-basis: 25%;
 }
 
-.main-menu ul li ul.megamenu li.mega-title>a {
+.main-menu ul li ul.megamenu li.mega-title > a {
     color: #111;
     font-size: 16px;
     font-weight: 500;
@@ -1251,7 +1251,7 @@ fieldset legend {
     flex-basis: 100%;
 }
 
-.main-menu ul li ul.megamenu li:hover>a {
+.main-menu ul li ul.megamenu li:hover > a {
     color: #CC2121;
 }
 
@@ -1482,7 +1482,7 @@ fieldset legend {
     }
 }
 
-.mobile-menu li>a {
+.mobile-menu li > a {
     font-size: 15px;
     color: #111;
     text-transform: capitalize;
@@ -1492,7 +1492,7 @@ fieldset legend {
     padding: 10px 0;
 }
 
-.mobile-menu li>a:hover {
+.mobile-menu li > a:hover {
     color: #CC2121;
 }
 
@@ -1549,7 +1549,7 @@ fieldset legend {
     transition: 0.4s;
 }
 
-.mobile-menu li.menu-item-has-children.active>.menu-expand i:before {
+.mobile-menu li.menu-item-has-children.active > .menu-expand i:before {
     -webkit-transform: rotate(0);
     -ms-transform: rotate(0);
     transform: rotate(0);
@@ -2043,8 +2043,7 @@ fieldset legend {
     margin-top: 100px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .hero-slider-item_2 .hero-slider-content {
         margin-top: 0;
     }
@@ -2060,8 +2059,7 @@ only screen and (max-width: 767.98px) {
     font-family: "Yesteryear", cursive;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .hero-slider-content span {
         padding-bottom: 10px;
     }
@@ -2569,7 +2567,7 @@ only screen and (max-width: 767.98px) {
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     .banner-content .text2 {
         font-size: 18px;
-        color: rgba(255,101,0,0.24);
+        color: rgba(255, 101, 0, 0.24);
     }
 }
 
@@ -2586,15 +2584,13 @@ only screen and (max-width: 767.98px) {
     text-align: left;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199.98px),
-only screen and (max-width: 575.98px) {
+@media only screen and (min-width: 992px) and (max-width: 1199.98px), only screen and (max-width: 575.98px) {
     .banner-content-right {
         right: 40px;
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 479.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 479.98px) {
     .banner-content-right {
         right: 30px;
     }
@@ -2623,8 +2619,7 @@ only screen and (max-width: 479.98px) {
     border: 1px solid #fff;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .banner-border:before {
         top: 15px;
         bottom: 15px;
@@ -2640,8 +2635,7 @@ only screen and (max-width: 767.98px) {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 479.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 479.98px) {
     .banner-content-shape {
         width: 80%;
     }
@@ -2742,8 +2736,7 @@ only screen and (max-width: 479.98px) {
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .service-policy-area [class*="col-"] {
         margin-bottom: 30px;
     }
@@ -3063,13 +3056,15 @@ only screen and (max-width: 767.98px) {
 .price-box {
     line-height: 1;
 }
-.pro-title{
+
+.pro-title {
     font-size: 18px;
     line-height: 1;
     color: #111;
     font-weight: 500;
     font-family: "Roboto", sans-serif;
 }
+
 .price-regular {
     font-size: 17px;
     line-height: 1;
@@ -3159,8 +3154,7 @@ only screen and (max-width: 767.98px) {
     margin-top: 30px;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199.98px),
-only screen and (min-width: 768px) and (max-width: 991.98px) {
+@media only screen and (min-width: 992px) and (max-width: 1199.98px), only screen and (min-width: 768px) and (max-width: 991.98px) {
     .button-group-list {
         margin-top: 15px;
     }
@@ -3919,8 +3913,7 @@ blockquote p {
     padding-top: 30px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .blog-share-link {
         padding-top: 15px;
     }
@@ -4440,7 +4433,7 @@ only screen and (max-width: 767.98px) {
 }
 
 .product-details-des .pro-desc {
-    font-size:16px;
+    font-size: 16px;
     margin-bottom: 20px;
     line-height: 30px;
 }
@@ -4848,8 +4841,7 @@ only screen and (max-width: 767.98px) {
     flex-direction: column;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .product-details-des.box-layout {
         margin-top: 0;
     }
@@ -4859,8 +4851,7 @@ only screen and (max-width: 767.98px) {
     max-width: 80%;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .product-details-des.box-layout p {
         max-width: 100%;
         padding: 0 15px;
@@ -5061,8 +5052,7 @@ only screen and (max-width: 767.98px) {
     margin-bottom: -8px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .checkout-page-wrapper {
         margin-bottom: 0;
     }
@@ -5263,8 +5253,7 @@ only screen and (max-width: 767.98px) {
     padding: 40px 20px 30px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .order-payment-method {
         padding: 32px 20px 36px;
     }
@@ -5483,8 +5472,7 @@ only screen and (max-width: 767.98px) {
     justify-content: space-between;
 }
 
-@media only screen and (min-width: 1200px),
-only screen and (min-width: 992px) and (max-width: 1199.98px) {
+@media only screen and (min-width: 1200px), only screen and (min-width: 992px) and (max-width: 1199.98px) {
     .cart-update-option {
         margin-top: 0;
         border-top: 0 solid transparent;
@@ -5495,8 +5483,7 @@ only screen and (min-width: 992px) and (max-width: 1199.98px) {
     width: 55%;
 }
 
-@media only screen and (max-width: 767.98px),
-only screen and (min-width: 768px) and (max-width: 991.98px) {
+@media only screen and (max-width: 767.98px), only screen and (min-width: 768px) and (max-width: 991.98px) {
     .cart-update-option .apply-coupon-wrapper {
         width: auto;
     }
@@ -5865,8 +5852,7 @@ only screen and (min-width: 768px) and (max-width: 991.98px) {
     margin-top: -2px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-only screen and (max-width: 767.98px) {
+@media only screen and (min-width: 768px) and (max-width: 991.98px), only screen and (max-width: 767.98px) {
     .contact-area {
         margin-bottom: -4px;
     }
@@ -6190,5 +6176,45 @@ only screen and (max-width: 767.98px) {
 .footer-social-link a:first-child {
     margin-left: 0;
 }
+
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    min-width: 300px;
+    max-width: 600px;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    text-align: center;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
 
 /*-------- footer bottom area end --------*/

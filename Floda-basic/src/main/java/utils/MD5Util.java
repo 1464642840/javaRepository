@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 
 /**
  * MD%加密工具类
- * @author Zayvion
+ * @author blxf
  * @date Jul 26, 2019
  */
 public class MD5Util {

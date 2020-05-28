@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-05 15:22
  * @Description:
  */
@@ -34,8 +34,6 @@ import java.util.UUID;
 @Scope("prototype")
 public class ProductAction extends BaseAction{
 
-    @Value("${IMG_BASE_PATH}")
-    private String IMG_BASE_PATH;
     @Autowired
     private ProductService productService;
     @Autowired
@@ -79,7 +77,7 @@ public class ProductAction extends BaseAction{
         try {
             FastDFSClient fastDFSClient = new FastDFSClient();
             String fileName = fastDFSClient.uploadFile(FileUtils.File2byte(imgFile));
-            img.setImg_addr(IMG_BASE_PATH+fileName);
+            img.setImg_addr(fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +114,7 @@ public class ProductAction extends BaseAction{
             try {
                 FastDFSClient fastDFSClient = new FastDFSClient();
                 String fileName = fastDFSClient.uploadFile(FileUtils.File2byte(imgFile));
-                img.setImg_addr(IMG_BASE_PATH+fileName);
+                img.setImg_addr(fileName);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -126,7 +124,7 @@ public class ProductAction extends BaseAction{
             try {
                 FastDFSClient fastDFSClient = new FastDFSClient();
                  fileName = fastDFSClient.uploadFile(FileUtils.File2byte(imgFile));
-                img.setImg_addr(IMG_BASE_PATH+fileName);
+                img.setImg_addr(fileName);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -135,7 +133,7 @@ public class ProductAction extends BaseAction{
             productService.updateProduct(product);
             Product p = productDao.getProduct(this.product.getPro_id());
             Img img = imgDao.getImg(p.getPro_imgId());
-            img.setImg_addr(IMG_BASE_PATH+fileName);
+            img.setImg_addr(fileName);
             imgDao.updateImg(img);
             jedisClient.del(KEY_GETPRODUCTS);
             jedisClient.del(KEY_GETNEWPRODUCTS);

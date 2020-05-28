@@ -18,32 +18,34 @@ import java.util.List;
 public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
     @Autowired
-    public void setSF(SessionFactory sessionFactory){
+    public void setSF(SessionFactory sessionFactory) {
         super.setSessionFactory(sessionFactory);
     }
 
     /**
      * 获取用户列表
+     *
      * @return
      */
     @Override
     public List<User> getUserList() {
         DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
-        List<User> list = (List<User>)this.getHibernateTemplate().findByCriteria(criteria);
+        List<User> list = (List<User>) this.getHibernateTemplate().findByCriteria(criteria);
         return list;
     }
 
     /**
      * 查询用户详细信息
+     *
      * @param user_id
      * @return
      */
     @Override
     public UserInfo info(int user_id) {
         DetachedCriteria criteria = DetachedCriteria.forClass(UserInfo.class);
-        criteria.add(Restrictions.eq("user_id",user_id));
-        List<UserInfo> list = (List<UserInfo>)this.getHibernateTemplate().findByCriteria(criteria);
-        if (list.size()>0){
+        criteria.add(Restrictions.eq("user_id", user_id));
+        List<UserInfo> list = (List<UserInfo>) this.getHibernateTemplate().findByCriteria(criteria);
+        if (list.size() > 0) {
             return list.get(0);
         }
         return null;
@@ -66,8 +68,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     @Override
     public User LoginUser(String username) {
         DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
-        criteria.add(Restrictions.eq("username",username));
-        List<User> list = (List<User>)this.getHibernateTemplate().findByCriteria(criteria);
+        criteria.add(Restrictions.eq("username", username));
+        List<User> list = (List<User>) this.getHibernateTemplate().findByCriteria(criteria);
         return list.get(0);
     }
 

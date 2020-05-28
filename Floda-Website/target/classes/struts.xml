@@ -33,6 +33,7 @@
             <result name="search">search.jsp</result>
         </global-results>
         <action name="productDetail" class="FProductAction" method="productDetail"/>
+        <action name="getProduct" class="FProductAction" method="productInfo"/>
         <action name="moreProduct" class="FProductAction" method="moreProduct"/>
         <action name="getNewProducts" class="FProductAction" method="getNewProducts"/>
         <action name="getProByCate" class="FProductAction" method="getProByCate"/>

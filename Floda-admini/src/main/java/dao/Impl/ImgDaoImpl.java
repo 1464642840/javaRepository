@@ -11,7 +11,7 @@ import pojo.Img;
 import java.io.Serializable;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-05 15:27
  * @Description:图片dao的实现类
  */

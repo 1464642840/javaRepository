@@ -7,7 +7,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 /**
  * 邮箱工具类
- * @author Zayvion
+ * @author blxf
  * @date Aug 5, 2019
  */
 public class MailUtil {

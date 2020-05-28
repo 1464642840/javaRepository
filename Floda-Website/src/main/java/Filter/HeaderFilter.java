@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Auther: zayvion
+ * @Auther: blxf
  * @Date: 2019-08-07 09:04
  * @Description:解决ajax跨域的过滤器
  */
