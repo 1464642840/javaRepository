@@ -56,6 +56,6 @@ public class MailUtil {
     }
 
     public static void main(String[] args) {
-        MailUtil.sendMail("zwf1026@qq.com","测试！！！");
+        MailUtil.sendMail("blxf1026@qq.com","测试！！！");
     }
 }

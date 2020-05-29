@@ -11,7 +11,7 @@ import utils.ResponseResult;
 import java.util.List;
 
 /**
- * @Auther: zwf
+ * @Auther: blxf
  * @Date: 2019/8/10 10:30
  * @Description: 收藏Service实现类
  */

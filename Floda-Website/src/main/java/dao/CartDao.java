@@ -6,7 +6,7 @@ import pojo.CartInfo;
 import java.util.List;
 
 /**
- * @Auther: zwf
+ * @Auther: blxf
  * @Date: 2019-08-08 9:22
  * @Description:购物车Dao接口
  */

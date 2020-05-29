@@ -4,7 +4,7 @@ package dao;
 import java.util.List;
 
 /**
- * @Auther: zwf
+ * @Auther: blxf
  * @Date: 2019-08-10 10:20
  * @Description:收藏Dao接口
  */

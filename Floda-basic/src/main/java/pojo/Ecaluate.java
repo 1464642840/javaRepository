@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * @Auther: zwf97
+ * @Auther: blxf97
  * @Date: 2019/8/6 14:40
  * @Description: 评论实体
  */

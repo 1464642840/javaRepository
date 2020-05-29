@@ -19,16 +19,10 @@ import java.util.Random;
 @Controller("smsAction")
 @Scope("prototype")
 public class SMSAction extends BaseAction {
-    // 短信应用 SDK AppID
-    private int appid = 1400241088; // SDK AppID
-    // 短信应用 SDK AppKey
-    private String appkey = "db2521edbfd1e059c2b1f88dc17b6df3";
+
     // 需要发送短信的手机号码
     private String phoneNumber;
-    // 短信模板 ID，需要在短信应用中申请
-    private int templateId = 393265;
-    // 签名
-    private String smsSign = "lzllzlcn";
+
 
     public String sendRegSMS() {
         System.out.println("phoneNumber:" + phoneNumber);
