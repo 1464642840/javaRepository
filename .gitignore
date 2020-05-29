@@ -19,8 +19,8 @@
 *.zip
 *.tar.gz
 *.rar
-Floda-admini/target/*
-Floda-Website/target/*
+BLXF-admini/target/*
+BLXF-Website/target/*
 .idea/
 /lib/
 /lib/*
